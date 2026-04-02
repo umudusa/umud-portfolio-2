@@ -1,85 +1,121 @@
 body {
   margin: 0;
-  background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #1a1a2e, #0f0f0f);
   color: white;
-  font-family: Arial;
-  text-align: center;
 }
 
+/* TITLE */
 .title {
-  margin-top: 20px;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
 }
 
+/* MOVIES GRID */
 .movies {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
+  gap: 40px;
+  padding: 50px;
 }
 
+/* CARD */
 .card {
-  background: rgba(255,255,255,0.05);
-  padding: 15px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.1);
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  transition: 0.4s;
+  cursor: pointer;
 }
 
 .card img {
-  width: 200px;
-  border-radius: 10px;
+  width: 220px;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+/* HOVER EFFECT */
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+/* TEXT OVERLAY */
+.card h3 {
+  position: absolute;
+  bottom: 60px;
+  left: 15px;
+  z-index: 2;
 }
 
 .card a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 15px;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  z-index: 2;
   background: #00ffcc;
-  color: black;
+  padding: 8px 14px;
+  border-radius: 6px;
   text-decoration: none;
-  border-radius: 5px;
+  color: black;
+  font-weight: bold;
 }
 
+/* SCREEN */
 .screen {
-  width: 300px;
-  height: 100px;
-  background: white;
-  margin: 20px auto;
-  border-radius: 10px;
+  width: 400px;
+  height: 120px;
+  margin: 30px auto;
+  background: linear-gradient(45deg, #fff, #ccc);
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.2);
 }
 
+/* SEATS */
 .seats {
   display: grid;
-  grid-template-columns: repeat(8, 30px);
-  gap: 10px;
+  grid-template-columns: repeat(8, 35px);
+  gap: 12px;
   justify-content: center;
 }
 
 .seat {
-  width: 30px;
-  height: 30px;
-  background: #444;
-  border-radius: 5px;
-  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  background: #333;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.seat:hover {
+  transform: scale(1.2);
 }
 
 .seat.selected {
   background: #00ffcc;
+  box-shadow: 0 0 10px #00ffcc;
 }
 
 .seat.occupied {
-  background: red;
-  cursor: not-allowed;
+  background: #ff4d4d;
 }
 
 button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: #00ffcc;
+  margin-top: 30px;
+  padding: 12px 25px;
+  background: linear-gradient(45deg, #00ffcc, #00ffaa);
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
 }
